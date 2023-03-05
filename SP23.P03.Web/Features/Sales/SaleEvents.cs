@@ -9,7 +9,7 @@ namespace SP23.P03.Web.Features.Sales;
 public class SaleEvents
 {
     public int Id { get; set; }
-    public string Name { get; set; } = string.Empty;
+    public string transactionName { get; set; } = string.Empty;
     public DateTimeOffset StartUtc { get; set; }
     public DateTimeOffset EndUtc { get; set; }
 
@@ -20,7 +20,7 @@ public class SaleEventConfiguration : IEntityTypeConfiguration<SaleEvents>
 {
     public void Configure(EntityTypeBuilder<SaleEvents> builder)
     {
-        builder.Property(x => x.Name)
+        builder.Property(x => x.transactionName)
             .IsRequired()
             .HasMaxLength(120);
     }
