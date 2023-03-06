@@ -1,0 +1,37 @@
+{
+  "expo": {
+    "name": "sp23-p03-mobile-g09",
+    "slug": "sp23-p03-mobile-g09",
+    "owner": "envoc_infrastructure",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.selu383.sp23.p03.g09"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "9841789e-c4c8-4d01-bf0f-6cc32a16d22a"
+      }
+    }
+  }
+}
