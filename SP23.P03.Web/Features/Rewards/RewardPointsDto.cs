@@ -6,8 +6,8 @@ namespace SP23.P03.Web.Features.Rewards
 
         public int PointsId { get; set; }
         public DateTime DateEarned { get; set; }
-        public int UserId { get; set; }
-        public int PointsTotal { get; set; }
+        public int userId { get; set; }
+        public int Points { get; set; }
 
        
 
