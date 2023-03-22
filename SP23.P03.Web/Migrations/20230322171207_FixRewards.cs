@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace SP23.P03.Web.Migrations
 {
     /// <inheritdoc />
-    public partial class Rewards : Migration
+    public partial class FixRewards : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -36,16 +36,16 @@ namespace SP23.P03.Web.Migrations
                 name: "RewardPoints",
                 columns: table => new
                 {
-                    UserId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    PointsId = table.Column<int>(type: "int", nullable: false),
                     DateEarned = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false),
                     Points = table.Column<int>(type: "int", nullable: false),
                     Type = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_RewardPoints", x => x.UserId);
+                    table.PrimaryKey("PK_RewardPoints", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -54,7 +54,7 @@ namespace SP23.P03.Web.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    transactionName = table.Column<string>(type: "nvarchar(120)", maxLength: 120, nullable: false),
+                    TicketDestination = table.Column<string>(type: "nvarchar(120)", maxLength: 120, nullable: false),
                     StartUtc = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
                     EndUtc = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false)
                 },

@@ -7,7 +7,8 @@ namespace SP23.P03.Web.Features.Rewards
 {
     public class RewardPoints
     {
-        public int PointsId { get; set; }
+        public int Id { get; set; }
+        //public int Id { get; set; }
         public DateTime DateEarned { get; set; }
         public int UserId { get; set; }
         public int Points { get; set; }
@@ -21,9 +22,7 @@ namespace SP23.P03.Web.Features.Rewards
     {
         public void Configure(EntityTypeBuilder<RewardPoints> builder)
         {
-           builder
-         .HasKey(x => x.UserId);
-                
+               
 
         }
     }

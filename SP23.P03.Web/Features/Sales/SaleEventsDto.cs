@@ -12,6 +12,5 @@ namespace SP23.P03.Web.Features.Sales
 
         public DateTimeOffset StartUtc { get; set; }
         public DateTimeOffset EndUtc { get; set; }
-
     }
 }

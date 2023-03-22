@@ -9,7 +9,7 @@ namespace SP23.P03.Web.Features.Rewards
         public int userId { get; set; }
         public int Points { get; set; }
 
-       
+
 
     }
 }
