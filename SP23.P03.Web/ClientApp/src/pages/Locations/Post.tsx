@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router";
 
-function Post() {
+export function Post() {
   let { postSlug } = useParams();
 
   useEffect(() => {
@@ -10,7 +10,7 @@ function Post() {
 
   return (
     <div className="home">
-      <div class="container">
+      <div className="container">
         <h1 className="mt-5">EnTrac is now serving X locations nationwide!</h1>
         <h6 className="mb-5">The post slug is, {postSlug}</h6>
         <p>
@@ -26,5 +26,3 @@ function Post() {
     </div>
   );
 }
-
-export default Post;

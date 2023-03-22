@@ -1,7 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { openLogin } from "../Login";
+import { openSignup } from "../Signup";
 
-function Navigation() {
+export function Navbar() : React.ReactElement {
   return (
     <div className="navigation">
       <nav className="navbar navbar-expand navbar-dark bg-dark">
@@ -12,7 +14,7 @@ function Navigation() {
           <div>
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <NavLink className="nav-link" to="/">
+                <NavLink className="nav-link" to="/homepage">
                   Home
                   <span className="sr-only">(current)</span>
                 </NavLink>
@@ -32,13 +34,13 @@ function Navigation() {
                 Locations
                 </NavLink>
               </li>
-              <li classname="nav-item">
-                <NavLink className="nav-link" to="/login">
+              <li className="nav-item">
+                <NavLink className="nav-link" to='#' onClick={(openLogin)}>
                   Login
                 </NavLink>
               </li>
-              <li classname="nav-item">
-                <NavLink className="nav-link" to="/signup">
+              <li className="nav-item">
+                <NavLink className="nav-link" to='#' onClick={(openSignup)}>
                   Signup
                 </NavLink>
               </li>
@@ -50,4 +52,3 @@ function Navigation() {
   );
 }
 
-export default Navigation;

@@ -1,10 +1,10 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 
-function Locations() {
+export function Locations() : React.ReactElement {
   return (
     <div className="home">
-      <div class="container">
+      <div className="container">
         <h1 className="text-center mt-5">Plan your next trip here!</h1>
         <Outlet />
       </div>
@@ -12,4 +12,3 @@ function Locations() {
   );
 }
 
-export default Locations;
