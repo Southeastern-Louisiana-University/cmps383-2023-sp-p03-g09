@@ -20,7 +20,7 @@ public class SaleEventsController : ControllerBase
     }
 
  
-
+    
     [HttpPut("{saleEventId}/add-ticket/{ticketId}"), Authorize(Roles = RoleNames.Admin)]
     public ActionResult<SaleEventsDto> AddProductToSale(int saleEventId, int productId, SaleEventsProductsDto body)
     {
@@ -57,13 +57,13 @@ public class SaleEventsController : ControllerBase
         }
         return Ok(result);
     }
-
+    // fixed
     [HttpPost, Authorize(Roles = RoleNames.Admin)]
     public ActionResult<SaleEventsDto> CreateSalesEvent(SaleEventsDto saleEventDto)
     {
         if (saleEventDto.StartUtc >= saleEventDto.EndUtc)
         {
-            return BadRequest();
+            return BadRequest("You have a Bad Request");
         }
 
         var hasOverlap = dataContext
@@ -80,7 +80,7 @@ public class SaleEventsController : ControllerBase
 
         var saleEvent = new SaleEvents
         {
-            transactionName = saleEventDto.transactionName,
+            TicketDestination = saleEventDto.TicketDestination,
             StartUtc = saleEventDto.StartUtc,
             EndUtc = saleEventDto.EndUtc
         };
@@ -112,7 +112,7 @@ public class SaleEventsController : ControllerBase
             .Select(x => new SaleEventsDto
             {
                 Id = x.Id,
-                transactionName = x.transactionName,
+                TicketDestination = x.TicketDestination,
                 StartUtc = x.StartUtc,
                 EndUtc = x.EndUtc,
             });
