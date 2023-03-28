@@ -11,9 +11,9 @@ export function HomePage(): React.ReactElement {
           
           </div>
           <div className="col-lg-5">
-            <h1 className="font-weight-light">Welcome to EnTrack rail servcies</h1>
-            <p>
-              blah blah this sites does x and you can do y by using z features
+            <h1 className="font-weight-light">Welcome to EnTrack rail services</h1>
+            <p> 
+              
             </p>
           </div>
         </div>
