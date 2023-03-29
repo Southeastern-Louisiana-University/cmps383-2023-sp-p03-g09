@@ -1,0 +1,38 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+    
+
+}
+  
+
+  
+  .ImageHome{
+    width: 10%;
+    Height: 15%;
+    background-image: url(../images/train.jpg) !important;
+    background-size: contain;
+    background-position-y: 7%;
+    background-repeat: no-repeat;
+    margin-left:45%;
+    
+  
+  }
+
+
+
+  .col-lg-5{
+
+    Float: center;
+    height: 90%;
+    width: 50%;
+    margin-left:30%;
+    
+  }
+  
+
+  
+  .font-weight-light{
+
+    
+  }
