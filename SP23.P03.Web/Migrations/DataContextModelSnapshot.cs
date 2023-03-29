@@ -223,34 +223,6 @@ namespace SP23.P03.Web.Migrations
                     b.ToTable("AspNetUserRoles", (string)null);
                 });
 
-            modelBuilder.Entity("SP23.P03.Web.Features.Products.Ticket", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Location")
-                        .IsRequired()
-                        .HasMaxLength(120)
-                        .HasColumnType("nvarchar(120)");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Ticket");
-                });
-
             modelBuilder.Entity("SP23.P03.Web.Features.Rewards.RewardPoints", b =>
                 {
                     b.Property<int>("Id")
@@ -277,7 +249,7 @@ namespace SP23.P03.Web.Migrations
                     b.ToTable("RewardPoints");
                 });
 
-            modelBuilder.Entity("SP23.P03.Web.Features.Sales.SaleEvents", b =>
+            modelBuilder.Entity("SP23.P03.Web.Features.Tickets.Ticket", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -285,11 +257,20 @@ namespace SP23.P03.Web.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTimeOffset>("EndUtc")
-                        .HasColumnType("datetimeoffset");
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTimeOffset>("StartUtc")
-                        .HasColumnType("datetimeoffset");
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TicketDeparture")
+                        .IsRequired()
+                        .HasMaxLength(120)
+                        .HasColumnType("nvarchar(120)");
 
                     b.Property<string>("TicketDestination")
                         .IsRequired()
@@ -298,36 +279,7 @@ namespace SP23.P03.Web.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("SaleEvents");
-                });
-
-            modelBuilder.Entity("SP23.P03.Web.Features.Sales.SaleEventsProduct", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("SaleEventId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("SaleEventPrice")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int?>("SaleEventsId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TicketId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("SaleEventsId");
-
-                    b.HasIndex("TicketId");
-
-                    b.ToTable("SaleEventsProduct");
+                    b.ToTable("Ticket");
                 });
 
             modelBuilder.Entity("SP23.P03.Web.Features.TrainStations.TrainStation", b =>
@@ -463,23 +415,6 @@ namespace SP23.P03.Web.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("SP23.P03.Web.Features.Sales.SaleEventsProduct", b =>
-                {
-                    b.HasOne("SP23.P03.Web.Features.Sales.SaleEvents", "SaleEvents")
-                        .WithMany("Products")
-                        .HasForeignKey("SaleEventsId");
-
-                    b.HasOne("SP23.P03.Web.Features.Products.Ticket", "Ticket")
-                        .WithMany("SaleEventProducts")
-                        .HasForeignKey("TicketId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("SaleEvents");
-
-                    b.Navigation("Ticket");
-                });
-
             modelBuilder.Entity("SP23.P03.Web.Features.TrainStations.TrainStation", b =>
                 {
                     b.HasOne("SP23.P03.Web.Features.Authorization.User", "Manager")
@@ -506,7 +441,7 @@ namespace SP23.P03.Web.Migrations
                         .WithMany()
                         .HasForeignKey("OrdersId");
 
-                    b.HasOne("SP23.P03.Web.Features.Products.Ticket", "Ticket")
+                    b.HasOne("SP23.P03.Web.Features.Tickets.Ticket", "Ticket")
                         .WithMany("UserInfos")
                         .HasForeignKey("TicketId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -539,16 +474,9 @@ namespace SP23.P03.Web.Migrations
                     b.Navigation("Tickets");
                 });
 
-            modelBuilder.Entity("SP23.P03.Web.Features.Products.Ticket", b =>
+            modelBuilder.Entity("SP23.P03.Web.Features.Tickets.Ticket", b =>
                 {
-                    b.Navigation("SaleEventProducts");
-
                     b.Navigation("UserInfos");
-                });
-
-            modelBuilder.Entity("SP23.P03.Web.Features.Sales.SaleEvents", b =>
-                {
-                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }
