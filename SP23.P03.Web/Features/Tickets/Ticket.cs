@@ -2,14 +2,17 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using SP23.P03.Web.Features.Authorization;
 using SP23.P03.Web.Features.Transactions;
-using SP23.P03.Web.Features.Sales;
+using System.ComponentModel.DataAnnotations;
 
-namespace SP23.P03.Web.Features.Products;
+namespace SP23.P03.Web.Features.Tickets;
 
 public class Ticket
 {
     public int Id { get; set; }
-    public string Location { get; set; } = string.Empty;
+    [Required, MaxLength(120)]
+    public string TicketDeparture { get; set; } = string.Empty;
+    [Required, MaxLength(120)]
+    public string TicketDestination { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
 
     public decimal Price { get; set; }
@@ -20,7 +23,6 @@ public class Ticket
         Inactive
     }
     public StatusType Status { get; set; }
-    public virtual ICollection<SaleEventsProduct> SaleEventProducts { get; set; } = new List<SaleEventsProduct>();
     public virtual ICollection<ProductUser> UserInfos { get; set; } = new List<ProductUser>();
 
 
@@ -29,7 +31,10 @@ public class Ticket
     {
         public void Configure(EntityTypeBuilder<Ticket> builder)
         {
-            builder.Property(x => x.Location)
+            builder.Property(x => x.TicketDeparture)
+                .IsRequired()
+                .HasMaxLength(120);
+            builder.Property(x => x.TicketDestination)
                 .IsRequired()
                 .HasMaxLength(120);
 

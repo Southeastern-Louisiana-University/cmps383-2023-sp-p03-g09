@@ -2,8 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using SP23.P03.Web.Features.Authorization;
 using SP23.P03.Web.Features.Tickets;
-using SP23.P03.Web.Features.Products;
-using SP23.P03.Web.Features.Sales;
 
 namespace SP23.P03.Web.Features.Transactions
 {
