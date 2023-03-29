@@ -16,8 +16,7 @@ export function HomePage(): React.ReactElement {
             
           <div className="col-lg-5">
             <h1 className="font-weight-light">Welcome to EnTrack Rail Services</h1>
-            <p>
-              
+            <p>A Dashboard with arrival times will be displayed here
             </p>
 
 
