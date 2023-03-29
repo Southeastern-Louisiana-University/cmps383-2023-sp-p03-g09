@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace SP23.P03.Web.Features.Passengers
 {
-    public class PassengerConfiguration
+    public class PassengerConfiguration : IEntityTypeConfiguration<Passenger>
     {
         public void Configure(EntityTypeBuilder<Passenger> builder)
         {
