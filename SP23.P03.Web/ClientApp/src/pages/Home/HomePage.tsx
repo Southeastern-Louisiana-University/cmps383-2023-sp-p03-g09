@@ -3,23 +3,28 @@ import './HomePage.css';
 
 
 
+
 export function HomePage(): React.ReactElement {
     return (
     <div className="homepage">
       <div className="container">
         <div className="row align-items-center my-5">
-          
+       
           </div>
+          <div className="ImageHome">
+            </div>
+            
           <div className="col-lg-5">
-            <h1 className="font-weight-light">Welcome to EnTrack rail servcies</h1>
-            <p>
-              blah blah this sites does x and you can do y by using z features
+            <h1 className="font-weight-light">Welcome to EnTrack Rail Services</h1>
+            <p>A Dashboard with arrival times will be displayed here
             </p>
+
+
           </div>
         </div>
-        
+        </div>
       
-    </div>
+    
   );
 }
 
