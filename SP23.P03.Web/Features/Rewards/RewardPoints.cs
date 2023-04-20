@@ -13,7 +13,9 @@ namespace SP23.P03.Web.Features.Rewards
         public int UserId { get; set; }
         public int Points { get; set; }
 
-        public string Type { get; set; } = string.Empty;    
+        public string Type { get; set; } = string.Empty;
+
+        public int milesTraveled { get; set; }
 
     }
 

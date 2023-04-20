@@ -13,6 +13,7 @@ public class Ticket
     public string TicketDeparture { get; set; } = string.Empty;
     [Required, MaxLength(120)]
     public string TicketDestination { get; set; } = string.Empty;
+    [Required, MaxLength(120)]
     public string Description { get; set; } = string.Empty;
 
     public decimal Price { get; set; }

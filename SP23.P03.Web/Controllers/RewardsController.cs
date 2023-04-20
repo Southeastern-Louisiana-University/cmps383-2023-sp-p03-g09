@@ -79,7 +79,7 @@ namespace SP23.P03.Web.Controllers
         {
             if (!IsValid(dto))
             {
-                return BadRequest("Points must be 25 or -75.");
+                return BadRequest();
             }
 
             // Get points of the current user
@@ -95,6 +95,7 @@ namespace SP23.P03.Web.Controllers
                 DateEarned = DateTime.Now,
                 UserId = dto.userId,
                 Points = dto.Points,
+                milesTraveled = dto.milesTraveled,
             };
             Rewards.Add(reward);
             dataContext.SaveChanges();
@@ -108,8 +109,9 @@ namespace SP23.P03.Web.Controllers
 
         private bool IsValid(RewardPointsDto dto)
         {
-            //points awarded must be 25 at a time, points redeemed must be -75 at a time
-            return dto.Points == 25 || dto.Points == -75;
+            
+            return dto.Points == dto.milesTraveled * .05 ||  dto.Points== dto.Points - 50 || dto.Points == dto.Points - 100 
+                || dto.Points == dto.Points - 150 || dto.Points == dto.Points - 200;
         }
 
 
@@ -124,6 +126,7 @@ namespace SP23.P03.Web.Controllers
                     PointsId = x.Id,
                     userId = x.UserId,
                     Points = x.Points,
+
                 });
         }
 
