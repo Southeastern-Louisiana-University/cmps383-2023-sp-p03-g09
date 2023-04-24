@@ -14,7 +14,7 @@ public class AuthenticationController : ControllerBase
     private readonly SignInManager<User> signInManager;
     private readonly UserManager<User> userManager;
 
-    public AuthenticationController(
+    public AuthenticationController( 
         SignInManager<User> signInManager,
         UserManager<User> userManager)
     {
