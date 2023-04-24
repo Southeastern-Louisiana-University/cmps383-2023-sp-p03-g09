@@ -67,9 +67,11 @@ const Signup = (props: ModalProps) => {
                     </Button>
                 </div>
             </Modal>
-            
+
         </Formik>
     );
 }
 
 export default Signup;
+
+
