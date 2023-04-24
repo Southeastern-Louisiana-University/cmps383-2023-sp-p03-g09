@@ -1,15 +1,18 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { logoutUser, useUser } from "../AuthFunction";
 import { openLogin } from "../Login";
 import { openSignup } from "../Signup";
 
 export function Navbar() : React.ReactElement {
+  const user = useUser();
+  
   return (
     <div className="navigation">
       <nav className="navbar navbar-expand navbar-dark bg-dark">
         <div className="container">
           <NavLink className="navbar-brand" to="/">
-            EnTrack Rail Services
+            EnTrack
           </NavLink>
           <div>
             <ul className="navbar-nav ml-auto">
@@ -44,6 +47,13 @@ export function Navbar() : React.ReactElement {
                   Signup
                 </NavLink>
               </li>
+              <li className= "nav-item">
+                <NavLink className="nav-link" to='#' onClick={(logoutUser)}>
+                  Logout
+                </NavLink>
+              </li>
+            
+            
             </ul>
           </div>
         </div>
